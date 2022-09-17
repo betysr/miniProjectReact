@@ -1,22 +1,32 @@
-
+import React from 'react';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <div className="top">
+          <div className="location">
+            <p>Dallas</p>
+          </div>
+          <div className="temp">
+            <h1>65°F</h1>
+          </div>
+          <div className="description">
+            <p>Clouds</p>
+          </div>
+        </div>
+        <div className="bottom">
+          <div className="feels">
+            <p>60°F</p>
+          </div>
+          <div className="humidity">
+              <p>20%</p>
+          </div>
+          <div className="wind">
+            12 MPH
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
