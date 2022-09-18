@@ -1,6 +1,7 @@
 import { TextField, Button } from '@mui/material';
 import React, {useState} from 'react';
 import axios from 'axios';
+import './WeatherApi.css';
 
 
 function WeatherApi() {
@@ -19,28 +20,30 @@ function WeatherApi() {
   }
 
   return (
-    <div className="app">
-      <div className="container">
-      {data !== {} ? <h1>WEATHER</h1> : ""}
-      <div className="search">
-        <TextField id="outlined-basic" label="Location" color="warning" placeholder='Enter the location' value={location} 
-                onChange={event => setLocation(event.target.value)} />
-        <Button variant="contained" color='warning' onClick={searchLocation}>Search</Button>
-      </div>
-       <div className="top">
-          <div className="location">
-          {data.main ?<p>{data.name.toUpperCase()}</p> : null}
-          </div>
-          <div className="detail">
-            <div className="temp">
-                {data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null} 
-            </div>
-            <div className="description">
-            {data.main ?<p>{data.weather[0].main}</p> : null}
-            </div>
-          </div>
+    <div>
+        <div className="app">
+        <div className="container">
+        {data !== {} ? <h1>WEATHER</h1> : ""}
+        <div className="search">
+            <TextField id="outlined-basic" label="Location" color="warning" placeholder='Enter the location' value={location} 
+                    onChange={event => setLocation(event.target.value)} />
+            <Button variant="contained" color='warning' onClick={searchLocation}>Search</Button>
         </div>
-      </div>
+        <div className="top">
+            <div className="location">
+            {data.main ?<p>{data.name.toUpperCase()}</p> : null}
+            </div>
+            <div className="detail">
+                <div className="temp">
+                    {data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null} 
+                </div>
+                <div className="description">
+                {data.main ?<p>{data.weather[0].main}</p> : null}
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
   );
 }
