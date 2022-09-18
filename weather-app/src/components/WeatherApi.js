@@ -16,20 +16,29 @@ function WeatherApi() {
     console.log(response.data);
     })
     setLocation('');
-    
   }
+
+  const search = (event) => {
+    fetch(url).then((response) => {
+      setData(response.data);
+      console.log(response.data);
+    })
+    setLocation('');
+  }
+
+  
 
   return (
     <div>
         <div className="app">
-        <div className="container">
-        {data !== {} ? <h1>WEATHER</h1> : ""}
-        <div className="search">
-            <TextField id="outlined-basic" label="Location" color="warning" placeholder='Enter the location' value={location} 
-                    onChange={event => setLocation(event.target.value)} />
-            <Button variant="contained" color='warning' onClick={searchLocation}>Search</Button>
-        </div>
-        <div className="top">
+          <div className="container">
+            {data !== {} ? <h1>WEATHER</h1> : ""}
+            <div className="search">
+                <TextField id="outlined-basic" label="Location" color="warning" placeholder='Enter the location' value={location} 
+                        onChange={event => setLocation(event.target.value)} />
+                <Button variant="contained" color='warning' onClick={searchLocation}>Search</Button>
+            </div>
+          <div className="top">
             <div className="location">
             {data.main ?<p>{data.name.toUpperCase()}</p> : null}
             </div>
@@ -41,9 +50,9 @@ function WeatherApi() {
                 {data.main ?<p>{data.weather[0].main}</p> : null}
                 </div>
             </div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
