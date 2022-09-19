@@ -18,16 +18,6 @@ function WeatherApi() {
     setLocation('');
   }
 
-  const search = (event) => {
-    fetch(url).then((response) => {
-      setData(response.data);
-      console.log(response.data);
-    })
-    setLocation('');
-  }
-
-  
-
   return (
     <div>
         <div className="app">
